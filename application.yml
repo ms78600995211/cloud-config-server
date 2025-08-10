@@ -7,6 +7,7 @@ eureka:
     service-url:
       defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
 
+
 microservice:
   usermanagement-service:
     endpoints:
