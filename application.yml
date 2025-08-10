@@ -3,17 +3,18 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://host.docker.internal:8761/eureka/
   instance:
     hostname: localhost
-    
-    
+
 microservice:
   payment-service:
     endpoints:
       endpoint:
-        uri: http://PAYMENT-SERVICE/payment/doPayment
+        uri: http://usermanagement/api/user/findByEmail
   order-service:
     endpoints:
       endpoint:
-        uri: http://ORDER-SERVICE/order/bookOrder    
+        uri: http://Security-Service/security/login
+
+
