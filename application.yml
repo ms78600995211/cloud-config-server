@@ -8,11 +8,11 @@ eureka:
     hostname: localhost
 
 microservice:
-  payment-service:
+  usermanagement-service:
     endpoints:
       endpoint:
         uri: http://usermanagement/api/user/findByEmail
-  order-service:
+  security-service:
     endpoints:
       endpoint:
         uri: http://Security-Service/security/login
