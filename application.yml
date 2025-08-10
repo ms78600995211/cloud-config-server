@@ -3,27 +3,38 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://host.docker.internal:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
   instance:
     hostname: localhost
 
-# Management & actuator
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-      base-path: /actuator
-  endpoint:
-    health:
-      show-details: always
-
 microservice:
+  payment-service:
+    endpoints:
+      endpoint:
+        uri: lb://PAYMENT-SERVICE/payment/doPayment
+  order-service:
+    endpoints:
+      endpoint:
+        uri: lb://ORDER-SERVICE/order/bookOrder
   usermanagement-service:
     endpoints:
       endpoint:
-        uri: lb://USERMANAGEMENT/api/user/
-  security-service:
-    endpoints:
-      endpoint:
-        uri: http://Security-Service/security/login
+        uri: lb://USERMANAGEMENT/api/user/getSubUserInfo
+
+# PostgreSQL Database
+spring:
+  datasource:
+    url: jdbc:postgresql://scrapeco-postgres-dev.clck4a2kw6my.ap-south-1.rds.amazonaws.com:5431/scrapeco
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+# JWT Secret
+jwt:
+  secret: eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJzY3JhcGVjbyIsIlVzZXJuYW1lIjoic2NyYXBlY28iLCJleHAiOjE3Mjk0OTk2MDQsImlhdCI6MTcyOTQ5OTYwNH0.Ix573tLeOH1yitcWXwHtDSxrxxHOaQTwzhhHOkxuaMQ
