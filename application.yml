@@ -8,18 +8,10 @@ eureka:
     hostname: localhost
 
 microservice:
-  payment-service:
-    endpoints:
-      endpoint:
-        uri: lb://PAYMENT-SERVICE/payment/doPayment
-  order-service:
-    endpoints:
-      endpoint:
-        uri: lb://ORDER-SERVICE/order/bookOrder
   usermanagement-service:
     endpoints:
       endpoint:
-        uri: lb://USERMANAGEMENT/api/user/getSubUserInfo
+        uri: lb://USERMANAGEMENT/api/user/
 
 # PostgreSQL Database
 spring:
