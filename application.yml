@@ -11,7 +11,7 @@ microservice:
   usermanagement-service:
     endpoints:
       endpoint:
-        uri: http://usermanagement/api/user/findByEmail
+        uri: http://usermanagement/api/user/getSubUserInfo
   security-service:
     endpoints:
       endpoint:
