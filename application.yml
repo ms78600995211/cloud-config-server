@@ -22,7 +22,7 @@ microservice:
   usermanagement-service:
     endpoints:
       endpoint:
-        uri: lb://USERMANAGEMENT/api/user/getSubUserInfo
+        uri: lb://USERMANAGEMENT/api/user/
   security-service:
     endpoints:
       endpoint:
