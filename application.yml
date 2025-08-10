@@ -7,6 +7,17 @@ eureka:
   instance:
     hostname: localhost
 
+# Management & actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+
 microservice:
   usermanagement-service:
     endpoints:
@@ -16,5 +27,3 @@ microservice:
     endpoints:
       endpoint:
         uri: http://Security-Service/security/login
-
-
